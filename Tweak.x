@@ -35,6 +35,12 @@
 
 %end
 
+%hook YTPlayerStatus
+
+- (BOOL)backgroundPlayback { return YES; }
+
+%end
+
 %hook YTIClientMdxGlobalConfig
 
 %new(B@:)
@@ -51,6 +57,24 @@
 %hook MLVideo
 
 - (BOOL)playableInBackground { return YES; }
+
+%end
+
+%hook HAMPlayer
+
+-(BOOL)allowsBackgroundPlayback { return YES; }
+
+%end
+
+%hook HAMBaseTrackRenderer
+
+-(BOOL)allowsBackgroundPlayback { return YES; }
+
+%end
+
+%hook YTWatchFloatingMiniplayerViewController
+
+-(BOOL)isBackgroundPlaybackEnabled { return YES; }
 
 %end
 
